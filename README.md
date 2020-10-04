@@ -31,3 +31,26 @@
     age: number;
   } = { name: 'Carl', age: 37 };
   ```
+
+## Typescript specific types
+
+### Touple
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888072#notes
+
+An array with fixed lenghts and types
+
+```typescript
+const person: { name: string; age: number; role: [number, string] } = {
+  name: 'Carl',
+  age: 27,
+  role = [1, 'admin']
+};
+
+person.role[0] = 10;
+person.role[1] = 'user';
+
+person.role = [10, 'user'];
+
+person.role = ['user', 10]; //Incorrect types
+```
