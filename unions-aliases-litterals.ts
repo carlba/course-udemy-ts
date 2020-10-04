@@ -1,11 +1,21 @@
-//Union Types
-//https://www.udemy.com/course/understanding-typescript/learn/lecture/16888082#notes
-//Litteral Types
+// Union Types
+// https://www.udemy.com/course/understanding-typescript/learn/lecture/16888082#notes
+
+// Litteral Types
+// resultType: 'string' | 'number';
 //https://www.udemy.com/course/understanding-typescript/learn/lecture/16888086#notes
+
+// Type Aliases
+// Can be used to define our own custom types that can be reused as types for other
+// things.
+// https://www.udemy.com/course/understanding-typescript/learn/lecture/16888090#notes
+type Combinable = number | string;
+type ResultType = 'number' | 'string'; //Litteral Type
+
 function combine(
-  input1: number | string,
-  input2: number | string,
-  resultType: 'string' | 'number'
+  input1: number | string, // Union Type
+  input2: Combinable, // Type Alias
+  resultType: ResultType // Type Alias
 ) {
   let result: string | number;
   // When working with union types it may be needed to implement runtime timecheck
