@@ -52,3 +52,9 @@ person.role = [10, 'user'];
 
 person.role = ['user', 10]; //Incorrect types
 ```
+
+### Litterals
+
+```typescript
+const person: { name: 'Carl' } = {};
+```
