@@ -23,3 +23,11 @@
   name = 2;
   ```
 
+- Neither for more complex object types like
+
+  ```typescript
+  const person: {
+    name: string;
+    age: number;
+  } = { name: 'Carl', age: 37 };
+  ```
