@@ -2,7 +2,7 @@
 
 ## Core Types
 
-![Core Types](https://cdn.jsdelivr.net/gh/carlba/assets@master/52LVhw-K8Xj3W.png)
+![Core Types](https://cdn.jsdelivr.net/gh/carlba/assets@master/1DtY5G-EY3Xew.png)
 
 ## Type Inferance
 
