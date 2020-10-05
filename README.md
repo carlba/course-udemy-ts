@@ -6,7 +6,7 @@
 
 ![Core Types](https://cdn.jsdelivr.net/gh/carlba/assets@master/1DtY5G-EY3Xew.png)
 
-## Type Inferance
+### Type Inferance
 
 - This is invalid since Typescript inferred that the type of name is a string. Yet we
   try to assign a number too it.
@@ -32,9 +32,9 @@
   } = { name: 'Carl', age: 37 };
   ```
 
-## Typescript specific types
+### Typescript specific types
 
-### Touple
+#### Touple
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16888072#notes
 
@@ -55,13 +55,13 @@ person.role = [10, 'user'];
 person.role = ['user', 10]; //Incorrect types
 ```
 
-### Litterals
+#### Litterals
 
 ```typescript
 const person: { name: 'Carl' } = {};
 ```
 
-## Returns
+### Returns
 
 - If a function does not return anything Typescript will infer the return type to void
   https://www.udemy.com/course/understanding-typescript/learn/lecture/16888096
@@ -71,3 +71,13 @@ const person: { name: 'Carl' } = {};
     console.log('Result: ' + num);
   }
   ```
+
+## Typescript compiler
+
+### Watch mode
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888158
+
+```bash
+  tsc app.ts --watch
+```
