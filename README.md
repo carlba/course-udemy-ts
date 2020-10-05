@@ -74,10 +74,23 @@ const person: { name: 'Carl' } = {};
 
 ## Typescript compiler
 
-### Watch mode
+### Watch mode for one file
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16888158
 
 ```bash
   tsc app.ts --watch
 ```
+
+### Watch mode for a whole project
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888162
+
+To accomplish this Typescript needs to be aware that our folder is a project, like so:
+
+```bash
+tsc --init
+```
+
+This creates a tsconfig.json describing the project. It is now possible to run
+`tsc --watch` to automatically detect and compile any changes in the project folder.
