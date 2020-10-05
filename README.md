@@ -58,3 +58,14 @@ person.role = ['user', 10]; //Incorrect types
 ```typescript
 const person: { name: 'Carl' } = {};
 ```
+
+## Returns
+
+- If a function does not return anything Typescript will infer the return type to void
+  https://www.udemy.com/course/understanding-typescript/learn/lecture/16888096
+
+  ```typescript
+  function printResult(num: number) {
+    console.log('Result: ' + num);
+  }
+  ```
