@@ -13,3 +13,14 @@ username = userInput;
 if (typeof userInput === 'string') {
   username = userInput;
 }
+
+// Never
+// https://www.udemy.com/course/understanding-typescript/learn/lecture/16888110
+
+// The never type should be used when a function never returns something as in the
+// case where it always throws an error.
+function generateError(message: string, code: number): never {
+  throw { message: message, errorCode: code };
+}
+
+generateError('An error occurred', 400);
