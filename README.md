@@ -94,3 +94,40 @@ tsc --init
 
 This creates a tsconfig.json describing the project. It is now possible to run
 `tsc --watch` to automatically detect and compile any changes in the project folder.
+
+### Exclude files
+
+```json
+{
+  "compilerOptions": {},
+  "exclude": [
+    "one-file.ts",
+    "one*.ts",
+    "**/*.file.ts", // Matches *.file.ts in any folder
+    "functions-returns.ts",
+    "unknown-never.ts"
+  ]
+}
+```
+
+Most common usage
+
+```json
+{
+  "compilerOptions": {},
+  "exclude": ["node_modules"]
+}
+```
+
+### Include Files
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888166
+
+Select exactly which files will be included in a Typescript project.
+
+```json
+{
+  "compilerOptions": {},
+  "include": ["app.ts", "analytics.ts"]
+}
+```
