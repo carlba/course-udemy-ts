@@ -1,5 +1,7 @@
 # Udemy Typescript
 
+[Typescript: Handbook - Basic Types](https://www.typescriptlang.org/docs/handbook/basic-types.html)
+
 ## Core Types
 
 ![Core Types](https://cdn.jsdelivr.net/gh/carlba/assets@master/1DtY5G-EY3Xew.png)
