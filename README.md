@@ -128,6 +128,24 @@ Select exactly which files will be included in a Typescript project.
 ```json
 {
   "compilerOptions": {},
-  "include": ["app.ts", "analytics.ts"]
+  "include": ["app.ts", "an
+  alytics.ts"]
+}
+```
+
+### Setting Compilation Target
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/17009168#content
+
+The javascript version Typescript compiles to default if not specific is `es3`.
+Default in the generated `tsconfig.json` is `es5`. The target will affect how the
+output js looks one example is that `let` and `const` will be used instead of `var` when
+moving from `es5` to `es6` as target.
+
+```json
+{
+  "compilerOptions": {
+    "target": "es5"
+  }
 }
 ```
