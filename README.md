@@ -149,3 +149,19 @@ moving from `es5` to `es6` as target.
   }
 }
 ```
+
+### Typescript included libraries
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888184
+
+These control which libraries that are always availible in the scope. By default
+they include `document`, `element` and other things that is nativly availible when
+user Javascript in the browser
+
+```json
+{
+  "compilerOptions": {
+    "lib": ["lib"]
+  }
+}
+```
