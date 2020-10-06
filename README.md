@@ -193,3 +193,56 @@ Controls weather Typescript outputs Javascript files if a Typescript error occur
   }
 }
 ```
+
+### compilerOptions.strict
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888204
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888204
+
+```json
+{
+  "compilerOptions": {
+    "strict": true /* Enable all strict type-checking options. */
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+  }
+}
+```
+
+- noImplicitAny
+  Prevents function declarations with undefined parameters
+
+- strictNullChecks
+  Makes Typescript very strict about when things might possible be null.
+
+  ```typescript
+  // There is no way for Typescript to know if this will return null.
+  const button = document.getElementById('button');
+  button.addEventListener('click', ()=> console.log('Button was clicked')
+  ```
+
+  If the toggle is active there are two ways of handling this.
+
+  1. Use the exclamation mark
+
+     ```typescript
+     const button = document.getElementById('button')!;
+     ```
+
+     This will tell Typescript that we are sure that the statement will never return
+     null.
+
+  2. Use a runtime null check
+
+     ```typescript
+     const button = document.getElementById('button');
+     if (button) {
+       button.addEventListener('click', ()=> console.log('Button was clicked')
+     }
+     ```
