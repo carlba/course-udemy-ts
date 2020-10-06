@@ -74,6 +74,10 @@ const person: { name: 'Carl' } = {};
 
 ## Typescript compiler
 
+[.tsconfig Docs](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+[.tsconfig.compilerOptions Docs](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+[VS Code Debugging](https://code.visualstudio.com/docs/typescript/typescript-debugging)
+
 ### Watch mode for one file
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16888158
