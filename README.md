@@ -179,3 +179,17 @@ Controls where Typescript puts the generated compiled Javascript files.
   }
 }
 ```
+
+### compilerOptions.noEmitOnError
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888192
+
+Controls weather Typescript outputs Javascript files if a Typescript error occurs.
+
+```json
+{
+  "compilerOptions": {
+    "noEmitOnError": true
+  }
+}
+```
