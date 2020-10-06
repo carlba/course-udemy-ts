@@ -165,3 +165,17 @@ user Javascript in the browser
   }
 }
 ```
+
+### compilerOptions.outDir
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888192
+
+Controls where Typescript puts the generated compiled Javascript files.
+
+```json
+{
+  "compilerOptions": {
+    "outDir": ["./dist"]
+  }
+}
+```
