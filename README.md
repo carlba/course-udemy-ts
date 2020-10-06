@@ -246,3 +246,24 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16888204
        button.addEventListener('click', ()=> console.log('Button was clicked')
      }
      ```
+
+- noUnusedLocals
+
+  Prevents defining variables that are not used within the same scope.
+
+- noUnusedParameters
+
+  Prevents function parameters that are not used within the body.
+
+- noImplicitReturn
+
+  If set to true the below code would generate an error because we don't handle all
+  possible input values within the function
+
+  ```typescript
+  function add(n1: number, n2: number) {
+    if (n1 + n2 > 0) {
+      return n1 + n2;
+    }
+  }
+  ```
