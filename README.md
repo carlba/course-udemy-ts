@@ -431,3 +431,23 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16888284
 
 - Abstract classes cannot be instantiated.
 - Classes that extends from Abstract classes must implement all abstract methods.
+
+### Singleton
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888284
+
+A singleton is a class that can only have one instance.
+
+```typescript
+class AccountingDepartment extends Department {
+  private _lastReport: string;
+  private static instance: AccountingDepartment;
+
+  static getInstance() {
+    return this.instance ? this.instance : new AccountingDepartment();
+  }
+
+
+const accounting = AccountingDepartment
+
+```
