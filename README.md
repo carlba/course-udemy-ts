@@ -451,3 +451,39 @@ class AccountingDepartment extends Department {
 const accounting = AccountingDepartment
 
 ```
+
+## Interfaces
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888310
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+
+  greet(phrase: string): void;
+}
+
+let user1: Person;
+
+user1 = {
+  name: 'Carl',
+  age: 37,
+  greet(phrase: string) {
+    console.log(`${phrase}, ${this.name}`);
+  }
+};
+```
+
+An interface can be added as a type for any kind of object.
+
+### Difference between Interfaces and Types
+
+- Interfaces can only be used to define a structure of an object whilst types can
+  contain unions types and similar.
+
+- Interfaces can be implemented by classes.
+
+- A class can implement multiple interfaces.
+
+- Similar to Abstract Classes but with absolutely no implementation details.
