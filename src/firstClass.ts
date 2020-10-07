@@ -39,8 +39,26 @@ class ITDepartment extends Department {
 }
 
 class AccountingDepartment extends Department {
+  private _lastReport: string;
+
+  get lastReport() {
+    if (this._lastReport) {
+      return this._lastReport;
+    } else {
+      throw new Error('No report found');
+    }
+  }
+
+  set lastReport(report: string) {
+    if (!report) {
+      throw new Error('Please provide a valid value');
+    }
+    this.addReports(report);
+  }
+
   constructor(id: string, private reports: string[]) {
     super(id, 'accounting');
+    this._lastReport = reports[0];
   }
 
   addEmployee(name: string) {
@@ -52,7 +70,9 @@ class AccountingDepartment extends Department {
 
   addReports(report: string) {
     this.reports.push(report);
+    this._lastReport = report;
   }
+
   printReports() {
     console.log(this.reports);
   }
@@ -65,11 +85,20 @@ engineering.addEmployee('Johanna');
 
 const it = new ITDepartment('2', ['Carl']);
 // @ts-ignore
-it.employees[3] = 'Tobias';
+it.employees[1] = 'Tobias';
 it.printEmployeeInformation();
 
-const accounting = new AccountingDepartment('3', ['Carl', 'Johanna']);
-accounting.addReports('Tobias');
+const accounting = new AccountingDepartment('3', []);
+try {
+  console.log(accounting.lastReport);
+} catch (error) {
+  console.log(error);
+}
+
+accounting.addReports('Something went wrong');
+console.log(accounting.lastReport);
+accounting.lastReport = 'Something went more wrong';
+console.log(accounting.lastReport);
 accounting.printReports();
 accounting.addEmployee('Carl');
 accounting.addEmployee('Johanna');

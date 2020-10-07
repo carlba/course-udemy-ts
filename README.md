@@ -390,3 +390,7 @@ class Department {
 ```
 
 The `private` keyword instead only allows the parent class access to the property.
+
+### Getters and Setters
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888278
