@@ -338,8 +338,22 @@ person.describe();
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16888254#overview
 
+### Shorthand syntax
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888258#overview
+
+This is the "longhand" syntax
+
 ```typescript
 class Department {
-  private employees: string[];
+  constructor(public name: string) {}
+}
+```
+
+And the shorthand syntax
+
+```typescript
+class Department {
+  constructor(public name: string) {}
 }
 ```

@@ -1,8 +1,14 @@
 class Department {
-  name: string;
+  // private id: string;
+  // private name: string;
   private employees: string[] = [];
-  constructor(name: string) {
-    this.name = name;
+
+  // This is the shorthand syntax for constructors. Parameters needs to be
+  // declared with private or public before them. No further declaration of the
+  // the properties is needed.
+  constructor(private id: string, private name: string) {
+    // this.id = id;
+    // this.name = name;
   }
 
   // This is not a real parameter that needs to be passed to the method
@@ -21,7 +27,7 @@ class Department {
   }
 }
 
-const accounting = new Department('accounting');
+const accounting = new Department('1', 'accounting');
 accounting.describe();
 
 accounting.addEmployee('Carl');
