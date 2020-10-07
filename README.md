@@ -394,3 +394,19 @@ The `private` keyword instead only allows the parent class access to the propert
 ### Getters and Setters
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16888278
+
+### Static Methods
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888280
+
+```typescript
+  class Department() {
+    static createEmployee(name: string) {
+      return { name };
+  }
+
+  Department.createEmployee('carl');
+```
+
+Static methods can not be accessed using this. To use a static method within the
+instance methods use `Department.createEmployee`.

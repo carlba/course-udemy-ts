@@ -1,6 +1,7 @@
 class Department {
   // private id: string;
   // private name: string;
+  static fiscalYear = 2020;
 
   // Protected means that the property is available in this class and classes that
   // extend it.
@@ -12,6 +13,10 @@ class Department {
   constructor(private readonly id: string, private name: string) {
     // this.id = id;
     // this.name = name;
+  }
+
+  static createEmployee(name: string) {
+    return { name };
   }
 
   // This is not a real parameter that needs to be passed to the method
@@ -82,6 +87,11 @@ const engineering = new Department('1', 'engineering');
 engineering.describe();
 engineering.addEmployee('Carl');
 engineering.addEmployee('Johanna');
+
+const employee = Department.createEmployee('Carl');
+console.log(employee);
+
+console.log(Department.fiscalYear);
 
 const it = new ITDepartment('2', ['Carl']);
 // @ts-ignore
