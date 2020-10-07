@@ -374,3 +374,19 @@ class Department {
 ### Inheritance
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16888264
+
+### Overriding Properties & The "protected" Modifier
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888274#questions
+
+If classes needs to be extended the protected keyword is helpful. It allows only classes
+that extends the parent class to modify the property.
+
+```typescript
+class Department {
+  protected employees: string[] = [];
+  constructor(private readonly id: string, private name: string) {}
+}
+```
+
+The `private` keyword instead only allows the parent class access to the property.

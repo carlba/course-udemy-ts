@@ -1,7 +1,10 @@
 class Department {
   // private id: string;
   // private name: string;
-  private employees: string[] = [];
+
+  // Protected means that the property is available in this class and classes that
+  // extend it.
+  protected employees: string[] = [];
 
   // This is the shorthand syntax for constructors. Parameters needs to be
   // declared with private or public before them. No further declaration of the
@@ -40,6 +43,13 @@ class AccountingDepartment extends Department {
     super(id, 'accounting');
   }
 
+  addEmployee(name: string) {
+    if (name === 'Carl') {
+      return;
+    }
+    this.employees.push(name);
+  }
+
   addReports(report: string) {
     this.reports.push(report);
   }
@@ -61,3 +71,9 @@ it.printEmployeeInformation();
 const accounting = new AccountingDepartment('3', ['Carl', 'Johanna']);
 accounting.addReports('Tobias');
 accounting.printReports();
+accounting.addEmployee('Carl');
+accounting.addEmployee('Johanna');
+
+// This will only show Johanna since Carl is not allowed the addEmployees method of the
+// AccountingDepartment class.
+accounting.printEmployeeInformation();
