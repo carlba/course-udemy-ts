@@ -502,13 +502,24 @@ An interface can be added as a type for any kind of object.
   }
   ```
 
-- Custom function type
+### Custom function type
 
-  https://www.udemy.com/course/understanding-typescript/learn/lecture/16888326
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888326
 
-  ```typescript
-  type addFn = (a: number, b: number) => number;
-  interface AddFn {
-    (a: number, b: number): number;
-  }
-  ```
+```typescript
+type addFn = (a: number, b: number) => number;
+interface AddFn {
+  (a: number, b: number): number;
+}
+```
+
+### Optional Parameters & Properties
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888332
+
+```typescript
+interface Named {
+  readonly name: string;
+  outputName?: string;
+}
+```

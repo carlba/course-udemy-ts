@@ -8,7 +8,8 @@ let add: AddFn;
 add = (n1: number, n2: number) => n1 + n2;
 
 interface Named {
-  readonly name: string;
+  readonly name?: string;
+  outputName?: string;
 }
 
 interface Greetable extends Named {
@@ -35,12 +36,18 @@ user1 = {
 user1.greet('Hello!');
 
 class Person implements Greetable {
-  constructor(readonly name: string) {}
+  constructor(readonly name?: string) {}
   greet(phrase) {
-    console.log(`${phrase}, ${this.name}`);
+    if (this.name) {
+      console.log(`${phrase}, ${this.name}`);
+    } else {
+      console.log('Hi!');
+    }
   }
 }
 
 const person = new Person('Carl');
+// Also ok since name is an optional property
+const person1 = new Person();
 
 person.greet('Hello!');
