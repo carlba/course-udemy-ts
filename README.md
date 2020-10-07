@@ -305,3 +305,31 @@ class Department {
 const accounting = new Department('accounting');
 console.log(accounting);
 ```
+
+### Constructor Functions & The "this" Keyword
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888250
+
+`this` can be a confusing subject in `Javascript` it usally refers
+to the caller of the method or function.
+
+In this example `this.name` refers to the name propert of the
+object in the person constant.
+
+```typescript
+const person: {
+  name: string;
+  age: number;
+  status: 'active' | 'inactive';
+  describe: Function;
+} = {
+  name: 'Carl',
+  age: 37,
+  status: 'active',
+  describe: function () {
+    console.log(this.name);
+  }
+};
+
+person.describe();
+```
