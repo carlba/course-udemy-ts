@@ -333,3 +333,13 @@ const person: {
 
 person.describe();
 ```
+
+### "private" and "public" Access Modifiers
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888254#overview
+
+```typescript
+class Department {
+  private employees: string[];
+}
+```

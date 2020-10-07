@@ -1,5 +1,6 @@
 class Department {
   name: string;
+  private employees: string[] = [];
   constructor(name: string) {
     this.name = name;
   }
@@ -10,12 +11,26 @@ class Department {
   describe(this: Department) {
     console.log('Department: ' + this.name);
   }
+
+  addEmployee(employee: string) {
+    this.employees.push(employee);
+  }
+  printEmployeeInformation() {
+    console.log(this.employees.length);
+    console.log(this.employees);
+  }
 }
 
 const accounting = new Department('accounting');
-console.log(accounting);
 accounting.describe();
 
-const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
+accounting.addEmployee('Carl');
+accounting.addEmployee('Johanna');
 
-accountingCopy.describe();
+// Not allowed since `accounting.employees` is a private property
+// @ts-ignore
+accounting.employees[3] = 'Tobias';
+accounting.printEmployeeInformation();
+
+// const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
+// accountingCopy.describe();
