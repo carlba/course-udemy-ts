@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "lite-server"
+    "start": "lite-server",
+    "ts-node-dev": "ts-node-dev"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,10 @@
   },
   "homepage": "https://github.com/carlba/udemy-ts#readme",
   "dependencies": {
-    "lite-server": "^2.5.4"
+    "lite-server": "^2.5.4",
+    "ts-node-dev": "^1.0.0-pre.63"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.3"
   }
 }

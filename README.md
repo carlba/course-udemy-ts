@@ -285,3 +285,23 @@ const add = (...numbers: number[]) =>
 
 const addedNumbers = add(5, 7, 8, 6);
 ```
+
+## OOP
+
+[Max on OOP](https://cdn.jsdelivr.net/gh/carlba/assets@master/UYp0C6-WebHD_720p.mp4)
+
+### Simple Class
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888246#notes
+
+```typescript
+class Department {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+const accounting = new Department('accounting');
+console.log(accounting);
+```
