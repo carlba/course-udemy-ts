@@ -357,3 +357,16 @@ class Department {
   constructor(public name: string) {}
 }
 ```
+
+### Readonly
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888260
+
+The property can only be set on initialization. Any attempt to write to it
+after instantiation will fail.
+
+```typescript
+class Department {
+  constructor(private readonly id, public name: string) {}
+}
+```

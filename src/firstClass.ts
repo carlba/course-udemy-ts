@@ -6,7 +6,7 @@ class Department {
   // This is the shorthand syntax for constructors. Parameters needs to be
   // declared with private or public before them. No further declaration of the
   // the properties is needed.
-  constructor(private id: string, private name: string) {
+  constructor(private readonly id: string, private name: string) {
     // this.id = id;
     // this.name = name;
   }
@@ -15,7 +15,7 @@ class Department {
   // but it can be used to ensure that the describe method can only
   // be called from something that is similar to a Department class.
   describe(this: Department) {
-    console.log('Department: ' + this.name);
+    console.log(`Department (${this.id}): ${this.name}`);
   }
 
   addEmployee(employee: string) {
