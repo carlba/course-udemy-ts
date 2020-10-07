@@ -1,4 +1,4 @@
-class Department {
+abstract class Department {
   // private id: string;
   // private name: string;
   static fiscalYear = 2020;
@@ -10,7 +10,7 @@ class Department {
   // This is the shorthand syntax for constructors. Parameters needs to be
   // declared with private or public before them. No further declaration of the
   // the properties is needed.
-  constructor(private readonly id: string, private name: string) {
+  constructor(protected readonly id: string, private name: string) {
     // this.id = id;
     // this.name = name;
   }
@@ -22,9 +22,7 @@ class Department {
   // This is not a real parameter that needs to be passed to the method
   // but it can be used to ensure that the describe method can only
   // be called from something that is similar to a Department class.
-  describe(this: Department) {
-    console.log(`Department (${this.id}): ${this.name}`);
-  }
+  abstract describe(this: Department): void;
 
   addEmployee(employee: string) {
     this.employees.push(employee);
@@ -40,6 +38,9 @@ class ITDepartment extends Department {
   constructor(id: string, admins: string[]) {
     super(id, 'it');
     this.admins = admins;
+  }
+  describe(this: ITDepartment): void {
+    console.log(`IT Department - ID: ${this.id}`);
   }
 }
 
@@ -66,6 +67,10 @@ class AccountingDepartment extends Department {
     this._lastReport = reports[0];
   }
 
+  describe() {
+    console.log(`Accounting Department - ID: ${this.id}`);
+  }
+
   addEmployee(name: string) {
     if (name === 'Carl') {
       return;
@@ -79,14 +84,14 @@ class AccountingDepartment extends Department {
   }
 
   printReports() {
-    console.log(this.reports);
+    console.log('Printing reports: ', this.reports.join(', '));
   }
 }
 
-const engineering = new Department('1', 'engineering');
-engineering.describe();
-engineering.addEmployee('Carl');
-engineering.addEmployee('Johanna');
+// This no longer works since abstract classes are not meant to be instantiated only to be
+// extended from.
+
+// const engineering = new Department('1', 'engineering');
 
 const employee = Department.createEmployee('Carl');
 console.log(employee);
@@ -99,6 +104,9 @@ it.employees[1] = 'Tobias';
 it.printEmployeeInformation();
 
 const accounting = new AccountingDepartment('3', []);
+
+accounting.describe();
+
 try {
   console.log(accounting.lastReport);
 } catch (error) {
@@ -112,7 +120,6 @@ console.log(accounting.lastReport);
 accounting.printReports();
 accounting.addEmployee('Carl');
 accounting.addEmployee('Johanna');
-
 // This will only show Johanna since Carl is not allowed the addEmployees method of the
 // AccountingDepartment class.
 accounting.printEmployeeInformation();

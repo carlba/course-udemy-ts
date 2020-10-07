@@ -410,3 +410,24 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16888280
 
 Static methods can not be accessed using this. To use a static method within the
 instance methods use `Department.createEmployee`.
+
+### Abstract Classes
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888284
+
+```typescript
+  abstract class Department() {
+    abstract describe(): void {}
+  }
+
+  class ITDepartment() extends Department {
+    describe() {
+      console.log(`IT Department`)
+    }
+  }
+
+  Department.createEmployee('carl');
+```
+
+- Abstract classes cannot be instantiated.
+- Classes that extends from Abstract classes must implement all abstract methods.
