@@ -1,5 +1,17 @@
-interface Greetable {
-  name: string;
+type addFn = (a: number, b: number) => number;
+
+interface AddFn {
+  (a: number, b: number): number;
+}
+
+let add: AddFn;
+add = (n1: number, n2: number) => n1 + n2;
+
+interface Named {
+  readonly name: string;
+}
+
+interface Greetable extends Named {
   greet(phrase: string): void;
 }
 
@@ -23,7 +35,7 @@ user1 = {
 user1.greet('Hello!');
 
 class Person implements Greetable {
-  constructor(public name) {}
+  constructor(readonly name: string) {}
   greet(phrase) {
     console.log(`${phrase}, ${this.name}`);
   }

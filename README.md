@@ -487,3 +487,28 @@ An interface can be added as a type for any kind of object.
 - A class can implement multiple interfaces.
 
 - Similar to Abstract Classes but with absolutely no implementation details.
+
+- An interface can also be extended, like so:
+
+  https://www.udemy.com/course/understanding-typescript/learn/lecture/16888320
+
+  ```typescript
+  interface Named {
+    readonly name: string;
+  }
+
+  interface Greetable extends Named {
+    greet(phrase: string): void;
+  }
+  ```
+
+- Custom function type
+
+  https://www.udemy.com/course/understanding-typescript/learn/lecture/16888326
+
+  ```typescript
+  type addFn = (a: number, b: number) => number;
+  interface AddFn {
+    (a: number, b: number): number;
+  }
+  ```
