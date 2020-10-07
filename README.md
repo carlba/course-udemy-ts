@@ -370,3 +370,7 @@ class Department {
   constructor(private readonly id, public name: string) {}
 }
 ```
+
+### Inheritance
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888264

@@ -27,16 +27,37 @@ class Department {
   }
 }
 
-const accounting = new Department('1', 'accounting');
-accounting.describe();
+class ITDepartment extends Department {
+  private admins: string[];
+  constructor(id: string, admins: string[]) {
+    super(id, 'it');
+    this.admins = admins;
+  }
+}
 
-accounting.addEmployee('Carl');
-accounting.addEmployee('Johanna');
+class AccountingDepartment extends Department {
+  constructor(id: string, private reports: string[]) {
+    super(id, 'accounting');
+  }
 
-// Not allowed since `accounting.employees` is a private property
+  addReports(report: string) {
+    this.reports.push(report);
+  }
+  printReports() {
+    console.log(this.reports);
+  }
+}
+
+const engineering = new Department('1', 'engineering');
+engineering.describe();
+engineering.addEmployee('Carl');
+engineering.addEmployee('Johanna');
+
+const it = new ITDepartment('2', ['Carl']);
 // @ts-ignore
-accounting.employees[3] = 'Tobias';
-accounting.printEmployeeInformation();
+it.employees[3] = 'Tobias';
+it.printEmployeeInformation();
 
-// const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
-// accountingCopy.describe();
+const accounting = new AccountingDepartment('3', ['Carl', 'Johanna']);
+accounting.addReports('Tobias');
+accounting.printReports();
