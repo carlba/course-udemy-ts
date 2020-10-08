@@ -96,3 +96,5 @@ function moveAnimal(animal: Animal) {
 }
 
 moveAnimal({ type: 'horse', runningSpeed: 20 });
+
+export {};

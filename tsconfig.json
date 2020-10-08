@@ -65,11 +65,11 @@
   },
   "exclude": [
     "node_modules",
-    "basics.ts",
-    "objects-arrays-enums.ts",
-    "unions-aliases-litterals.ts",
-    "functions-returns.ts",
-    "unknown-never.ts"
-  ],
-  "include": ["app.ts", "analytics.ts"]
+    "src/basics.ts",
+    "src/objects-arrays-enums.ts",
+    "src/unions-aliases-litterals.ts",
+    "src/functions-returns.ts",
+    "src/unknown-never.ts",
+    "src/rest-parameters.ts"
+  ]
 }

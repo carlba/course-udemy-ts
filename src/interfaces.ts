@@ -37,7 +37,7 @@ user1.greet('Hello!');
 
 class Person implements Greetable {
   constructor(readonly name?: string) {}
-  greet(phrase) {
+  greet(phrase: string) {
     if (this.name) {
       console.log(`${phrase}, ${this.name}`);
     } else {
@@ -51,3 +51,5 @@ const person = new Person('Carl');
 const person1 = new Person();
 
 person.greet('Hello!');
+
+export {};
