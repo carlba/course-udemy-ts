@@ -543,3 +543,12 @@ type Employee = {
 
 type ElevatedEmployee = Admin & Employee;
 ```
+
+### Type Guards
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16893892#overview
+
+https://basarat.gitbook.io/typescript/type-system/typeguard
+
+A method to ensure a property or method exits on a object before
+doing something.
