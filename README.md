@@ -557,7 +557,7 @@ doing something.
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16893894#overview
 
-````typescript
+```typescript
 interface Bird {
   type: 'bird';
   flyingSpeed: number;
@@ -584,4 +584,32 @@ function moveAnimal(animal: Animal) {
 }
 
 moveAnimal({ type: 'horse', runningSpeed: 20 });
-````
+```
+
+### Type Casting
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16893900#content
+
+Three ways
+
+#### User Brackets
+
+```typescript
+const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
+```
+
+#### Using as
+
+```typescript
+const userInputElement = document.getElementById('user-input')! as HTMLInputElement;
+```
+
+#### Using Type Guard
+
+```typescript
+const userInputElement = document.getElementById('user-input')! as HTMLInputElement;
+
+if (userInputElement) {
+  (userInputElement as HTMLInputElement).value = 'Hi there!';
+}
+```
