@@ -552,3 +552,36 @@ https://basarat.gitbook.io/typescript/type-system/typeguard
 
 A method to ensure a property or method exits on a object before
 doing something.
+
+### Discriminated Unions
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16893894#overview
+
+````typescript
+interface Bird {
+  type: 'bird';
+  flyingSpeed: number;
+}
+
+interface Horse {
+  type: 'horse';
+  runningSpeed: number;
+}
+
+type Animal = Bird | Horse;
+
+function moveAnimal(animal: Animal) {
+  let speed;
+  switch (animal.type) {
+    case 'bird':
+      speed = animal.flyingSpeed;
+      break;
+    case 'horse':
+      speed = animal.runningSpeed;
+  }
+
+  console.log(`Moving with speed: ${speed}`);
+}
+
+moveAnimal({ type: 'horse', runningSpeed: 20 });
+````
