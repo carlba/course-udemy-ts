@@ -613,3 +613,46 @@ if (userInputElement) {
   (userInputElement as HTMLInputElement).value = 'Hi there!';
 }
 ```
+
+### Index properties
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16893900
+
+```typescript
+// Index Properties
+// Objects adhering to this interface MUST have an id property of type string
+// Objects adhering to this interface CAN have attributes named any thing containing strings
+interface ErrorContainer {
+  id: string;
+  [key: string]: string;
+}
+
+const errorBag: ErrorContainer = {
+  id: 'error',
+  email: 'Not a valid email',
+  username: 'Must start with a capital character!'
+};
+```
+
+### Function Overloading
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16893904
+
+Function Overloading works by defining a return type for a certain set of function
+input parameters, like so:
+
+```typescript
+// Function Overload
+// https://basarat.gitbook.io/typescript/type-system/functions#overloading
+// https://www.udemy.com/course/understanding-typescript/learn/lecture/16893904
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+function add(a: Combinable, b: Combinable) {
+  if (typeof a === 'string' || typeof b === 'string') {
+    return a.toString() + b.toString();
+  }
+  return a + b;
+}
+
+const result = add('Carl', 'Bäckström');
+```
