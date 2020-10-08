@@ -523,3 +523,23 @@ interface Named {
   outputName?: string;
 }
 ```
+
+## Advanced Types
+
+### Intersection
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16893888
+
+```typescript
+type Admin = {
+  name: string;
+  privileges: string[];
+};
+
+type Employee = {
+  name: string;
+  startDate: Date;
+};
+
+type ElevatedEmployee = Admin & Employee;
+```
