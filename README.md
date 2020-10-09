@@ -808,6 +808,9 @@ const person = new Person();
 console.log(person);
 ```
 
-### Building Angular myself
+### Building Angular myself using decorators
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935718
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935720
+
+- Decorators execute from bottom to top. Not factories though
