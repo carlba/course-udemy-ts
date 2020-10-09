@@ -750,3 +750,14 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16894068#ove
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16894076
 https://www.typescriptlang.org/docs/handbook/utility-types.html
+
+## Decorators
+
+### First Class Decorator
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935714#overview
+
+- `experimentalDecorators": true` must be set to true in `tsconfig.json`
+- A Class Decorator takes one argument the constructor of the class
+- A Class Decorator is applied when the class is defined not when an object
+  is instantiated.
