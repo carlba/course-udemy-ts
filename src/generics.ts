@@ -40,3 +40,42 @@ function extractAndConvert<T, U extends keyof T>(obj: T, key: U) {
 }
 
 console.log(extractAndConvert({ name: 'test' }, 'name'));
+
+class DataStorage<T extends string | number | boolean> {
+  private data: T[] = [];
+
+  addItem(item: T) {
+    this.data.push(item);
+  }
+  removeItem(item: T) {
+    this.data.splice(this.data.indexOf(item), 1);
+  }
+  getItems() {
+    return [...this.data];
+  }
+}
+
+const textStorage = new DataStorage<string>();
+textStorage.addItem('Carl');
+textStorage.addItem('Johanna');
+// Not allowed because the generic type of the textStorage is string
+// textStorage.addItem(1);
+textStorage.removeItem('Johanna');
+console.log(textStorage.getItems());
+
+const numberStorage = new DataStorage<number>();
+numberStorage.addItem(1);
+
+const combinedStorage = new DataStorage<number | string>();
+combinedStorage.addItem('Carl');
+combinedStorage.addItem(22);
+console.log(combinedStorage.getItems());
+
+// We constrained the DataStorage class to only allow primitive types because the below
+// does not work
+
+// const objStorage = new DataStorage<object>();
+// objStorage.addItem({ name: 'Carl' });
+// objStorage.addItem({ name: 'Johanna' });
+
+// console.log(objStorage.getItems());

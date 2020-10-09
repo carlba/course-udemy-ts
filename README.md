@@ -741,3 +741,7 @@ function extractAndConvert<T, U extends keyof T>(obj: T, key: U) {
 
 console.log(extractAndConvert({ name: 'test' }, 'name'));
 ```
+
+### Generic Classes
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16894068#overview
