@@ -818,3 +818,7 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935720
 ### Diving into Property Decorators
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935722
+
+### Accessor & Parameter Decorators
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935724

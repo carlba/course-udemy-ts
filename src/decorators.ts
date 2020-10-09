@@ -45,6 +45,35 @@ function Log(target: any, propertyName: string) {
   console.log(target, propertyName);
 }
 
+/**
+ *
+ * @param target Prototype of the instance or the constructor
+ * @param name Name of the setter
+ * @param descriptor
+ */
+function Log2(target: any, name: string, descriptor: PropertyDescriptor) {
+  console.log('Accessor Decorator', { target, name, descriptor });
+}
+
+/**
+ *
+ * @param target Prototype of object if static else constructor
+ * @param name Name of the method
+ * @param descriptor PropertyDescriptor
+ */
+function Log3(target: any, name: string | Symbol, descriptor: PropertyDescriptor) {
+  console.log('Method Decorator', { target, name, descriptor });
+}
+/**
+ *
+ * @param target  Prototype of object if static else constructor
+ * @param name Name of method where the parameter is used
+ * @param descriptor
+ */
+function Log4(target: any, name: string, position: number) {
+  console.log('Parameter Decorator', { target, name, position });
+}
+
 class Product {
   private _price: number;
 
@@ -52,6 +81,7 @@ class Product {
   @Log
   title: string;
 
+  @Log2
   set price(val: number) {
     if (val > 0) {
       this._price = val;
@@ -64,7 +94,9 @@ class Product {
     this.title = title;
     this._price = price;
   }
-  getPriceWithTax(tax: number) {
+
+  @Log3
+  getPriceWithTax(@Log4 tax: number) {
     return this.price * (1 + tax);
   }
 }
