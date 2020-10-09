@@ -691,7 +691,7 @@ https://www.typescriptlang.org/docs/handbook/generics.html
 
 A generic type is a type connected to another type.
 
-## Creating Generic function
+### Creating Generic Function
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16894048
 
@@ -710,3 +710,19 @@ function merge<T, U>(objA: T, objB: U) {
 
 console.log(merge({ name: 'Carl ' }, { age: 22 }));
 ```
+
+### Type Constraints
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16894050
+
+It is possible to constrain a generic type using the extends syntax, like so:
+
+```typescript
+function merge<T extends object, U extends object>(objA: T, objB: U) {
+  return Object.assign(objA, objB);
+}
+
+console.log(merge({ name: 'Carl ' }, 30));
+```
+
+Doing so will cause Typescript to complain that 30 is not an object.

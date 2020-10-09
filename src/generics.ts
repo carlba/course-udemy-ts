@@ -10,8 +10,11 @@ const promise: Promise<string> = new Promise((resolve, reject) => {
 
 promise.then(result => console.log(result));
 
-function merge<T, U>(objA: T, objB: U) {
+function merge<T extends object, U extends object>(objA: T, objB: U) {
   return Object.assign(objA, objB);
 }
 
 console.log(merge({ name: 'Carl ' }, { age: 22 }));
+
+// Not allowed with the type constraint
+//console.log(merge({ name: 'Carl ' }, 30));
