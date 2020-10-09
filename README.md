@@ -745,3 +745,8 @@ console.log(extractAndConvert({ name: 'test' }, 'name'));
 ### Generic Classes
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16894068#overview
+
+### Generic Utility Types
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16894076
+https://www.typescriptlang.org/docs/handbook/utility-types.html

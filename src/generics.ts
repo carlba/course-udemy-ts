@@ -79,3 +79,5 @@ console.log(combinedStorage.getItems());
 // objStorage.addItem({ name: 'Johanna' });
 
 // console.log(objStorage.getItems());
+
+export {};
