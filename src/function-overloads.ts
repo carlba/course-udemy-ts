@@ -15,3 +15,5 @@ function add(a: Combinable, b: Combinable) {
 }
 
 const result = add('Carl', 'Bäckström');
+
+export {};

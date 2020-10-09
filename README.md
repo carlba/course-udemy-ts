@@ -807,3 +807,7 @@ class Person {
 const person = new Person();
 console.log(person);
 ```
+
+### Building Angular myself
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935718

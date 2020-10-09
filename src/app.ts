@@ -19,3 +19,5 @@ function clickHandler(message: string) {
 if (button) {
   button.addEventListener('click', clickHandler.bind(null, "You're welcome!"));
 }
+
+export {};
