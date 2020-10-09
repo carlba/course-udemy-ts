@@ -526,6 +526,8 @@ interface Named {
 
 ## Advanced Types
 
+https://www.typescriptlang.org/docs/handbook/advanced-types.html
+
 ### Intersection
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16893888
@@ -680,4 +682,31 @@ const userInput = null;
 const storedData = userInput ?? 'DEFAULT';
 
 console.log(storedData);
+```
+
+## Generics
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16894042
+https://www.typescriptlang.org/docs/handbook/generics.html
+
+A generic type is a type connected to another type.
+
+## Creating Generic function
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16894048
+
+The unknown "generic" types are defined by angle brackets and can then be used
+as a parameter type and return type. When the two generic parameter are specified
+Typescript can infer that the merge function will return a union of T and U. It could
+also be specified as the return type T & U.
+
+It is possible to define the generic parameter when a function is called using
+`merge<string, number>`.
+
+```typescript
+function merge<T, U>(objA: T, objB: U) {
+  return Object.assign(objA, objB);
+}
+
+console.log(merge({ name: 'Carl ' }, { age: 22 }));
 ```
