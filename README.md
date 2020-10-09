@@ -761,3 +761,49 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935714#ove
 - A Class Decorator takes one argument the constructor of the class
 - A Class Decorator is applied when the class is defined not when an object
   is instantiated.
+
+```typescript
+function Logger(constructor: Function) {
+  console.log('Logging...');
+  console.log(constructor);
+}
+
+@Logger
+class Person {
+  name = 'Carl';
+
+  constructor() {
+    console.log('Creating person object...');
+  }
+}
+
+const person = new Person();
+console.log(person);
+```
+
+### Working with Decorator Factories
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935716#overview
+
+To be able to modify the behavior of a decorator a decorator factory can be used. This will allow us to pass in an argument to the decorator, like so:
+
+```typescript
+function Logger(logString: string) {
+  return function (constructor: Function) {
+    console.log(logString);
+    console.log(constructor);
+  };
+}
+
+@Logger('LOGGING - PERSON')
+class Person {
+  name = 'Carl';
+
+  constructor() {
+    console.log('Creating person object...');
+  }
+}
+
+const person = new Person();
+console.log(person);
+```
