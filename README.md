@@ -814,3 +814,7 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935718
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935720
 
 - Decorators execute from bottom to top. Not factories though
+
+### Diving into Property Decorators
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935722

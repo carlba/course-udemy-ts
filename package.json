@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/carlba/udemy-ts#readme",
   "dependencies": {
+    "jsdom-quokka-plugin": "^1.0.16",
     "lite-server": "^2.5.4",
     "ts-node-dev": "^1.0.0-pre.63"
   },
