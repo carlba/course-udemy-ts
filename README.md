@@ -726,3 +726,18 @@ console.log(merge({ name: 'Carl ' }, 30));
 ```
 
 Doing so will cause Typescript to complain that 30 is not an object.
+
+### keyof
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16894062
+
+The `keyof` keyword means all keys of a certain generic type. This example shows
+how to use it with two generic types.
+
+```typescript
+function extractAndConvert<T, U extends keyof T>(obj: T, key: U) {
+  return `Value: ${obj[key]}`;
+}
+
+console.log(extractAndConvert({ name: 'test' }, 'name'));
+```
