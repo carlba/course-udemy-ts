@@ -18,13 +18,17 @@ function Logger(logString: string) {
 
 function WithTemplate(template: string, hookId: string) {
   console.log('TEMPLATE FACTORY');
-  return function (constructor: any) {
+  return function <T extends { new (...args: any[]): { name: string } }>(originalConstructor: T) {
     console.log('Rendering Template');
-    const hookElement = document.getElementById(hookId);
-    const p = new constructor();
-    if (hookElement) {
-      hookElement.innerHTML = template + `<h2>${p.name}</h2`;
-    }
+    return class extends originalConstructor {
+      constructor(...args: any[]) {
+        super();
+        const hookElement = document.getElementById(hookId);
+        if (hookElement) {
+          hookElement.innerHTML = template + `<h2>${this.name}</h2`;
+        }
+      }
+    };
   };
 }
 

@@ -822,3 +822,42 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935722
 ### Accessor & Parameter Decorators
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935724
+
+### Replacing the constructor of a class
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935734
+
+```typescript
+function WithTemplate(template: string, hookId: string) {
+  console.log('TEMPLATE FACTORY');
+  return function <T extends { new (...args: any[]): { name: string } }>(originalConstructor: T) {
+    console.log('Rendering Template');
+    return class extends originalConstructor {
+      constructor(...args: any[]) {
+        super();
+        const hookElement = document.getElementById(hookId);
+        if (hookElement) {
+          hookElement.innerHTML = template + `<h2>${this.name}</h2`;
+        }
+      }
+    };
+  };
+}
+
+@Logger('LOGGING - PERSON')
+@WithTemplate('<h1>My Person Object</h1>', 'app')
+class Person {
+  name = 'Carl';
+
+  constructor() {
+    console.log('Creating person object...');
+  }
+}
+
+const person = new Person();
+console.log(person);
+
+function Log(target: any, propertyName: string) {
+  console.log(target, propertyName);
+}
+```
