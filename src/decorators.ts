@@ -90,6 +90,10 @@ class Product {
     }
   }
 
+  get price() {
+    return this._price;
+  }
+
   constructor(title: string, price: number) {
     this.title = title;
     this._price = price;
@@ -100,3 +104,8 @@ class Product {
     return this.price * (1 + tax);
   }
 }
+
+const book = new Product('Book', 20);
+console.log(book);
+
+const test = new Product('case', 20);
