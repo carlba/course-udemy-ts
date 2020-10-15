@@ -753,6 +753,8 @@ https://www.typescriptlang.org/docs/handbook/utility-types.html
 
 ## Decorators
 
+https://www.typescriptlang.org/docs/handbook/decorator
+
 ### First Class Decorator
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935714#overview
