@@ -867,3 +867,7 @@ function Log(target: any, propertyName: string) {
 ### Example: Creating an "Autobind" Decorator
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935736#overview
+
+## Drag & Drop Project
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935762
