@@ -114,11 +114,15 @@ console.log(book);
 
 const test = new Product('case', 20);
 
-// This will ensure that a method always has access to this by adding a getter that
-// binds this to the inner method. To avoid having to do that manually.
-// Creating an "Autobind" Decorator
-// https://www.udemy.com/course/understanding-typescript/learn/lecture/16935736
-
+/**
+ * This will ensure that a method always has access to this by adding a getter that
+ * binds this to the inner method. To avoid having to do that manually.
+ * Creating an "Autobind" Decorator
+ * https://www.udemy.com/course/understanding-typescript/learn/lecture/16935736
+ * @param _ target
+ * @param __ name
+ * @param descriptor
+ */
 function AutoBind(_: any, __: string, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value;
   const adjustedDescriptor: PropertyDescriptor = {
@@ -219,3 +223,5 @@ courseForm.addEventListener('submit', event => {
 
   console.log(createdCourse);
 });
+
+export {};
