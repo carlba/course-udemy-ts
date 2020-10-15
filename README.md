@@ -158,8 +158,8 @@ moving from `es5` to `es6` as target.
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16888184
 
-These control which libraries that are always availible in the scope. By default
-they include `document`, `element` and other things that is nativly availible when
+These control which libraries that are always available in the scope. By default
+they include `document`, `element` and other things that is nativly available when
 user Javascript in the browser
 
 ```json
