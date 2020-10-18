@@ -3,3 +3,5 @@ const add = (...numbers: number[]) =>
   numbers.reduce((previousValue, currentValue) => previousValue + currentValue);
 
 const addedNumbers = add(5, 7, 8, 6);
+
+export {};

@@ -6,7 +6,7 @@ userInput = 5;
 userInput = 'Carl';
 
 // Does not work since Typescript does not now if userInput is of type string
-username = userInput;
+// username = userInput;
 
 // Works because Typescript detect the runtime typecheck and can be sure userInput is
 // in this case a string.
@@ -24,3 +24,5 @@ function generateError(message: string, code: number): never {
 }
 
 generateError('An error occurred', 400);
+
+export {};
