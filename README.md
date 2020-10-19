@@ -871,3 +871,7 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935736#ove
 ## Drag & Drop Project
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935762
+
+## Managing Application State with Singletons
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935820

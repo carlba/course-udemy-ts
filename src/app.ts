@@ -1,3 +1,45 @@
+/**
+ * ## Managing Application State with Singletons
+ *
+ * https://www.udemy.com/course/understanding-typescript/learn/lecture/16935820
+ *
+ * This is a singleton class that maintains the state of the application. We ensure
+ * that it is a singleton by declaring the constructor private so that the `new` keyword
+ * cannot be used to create an instance. Instead a `getInstance()` method is created that
+ * either returns the existing instance or creates a new one. This effectively ensures
+ * that only one instance of the class can exists at any given time.
+ *
+ * This also implements a subscription pattern similar to the one Angular uses.
+ * The `addListener()` method allows subscribers to register listener functions that
+ * will receive an updated project list when a new project is added.
+ */
+class ProjectState {
+  private listeners: any[] = [];
+  private projects: any[] = [];
+  private static instance: ProjectState;
+
+  private constructor() {}
+
+  static getInstance() {
+    this.instance = this.instance ? this.instance : new ProjectState();
+    return this.instance;
+  }
+
+  addListener(listenerFn: Function) {
+    this.listeners.push(listenerFn);
+  }
+
+  addProject(title: string, description: string, numberOfPeople: number) {
+    const newProject = { id: Math.random().toString(), title, description };
+    this.projects.push(newProject);
+    for (const listenerFn of this.listeners) {
+      listenerFn(this.projects.slice());
+    }
+  }
+}
+
+const projectState = ProjectState.getInstance();
+
 interface Validatable {
   value: string | number;
   required?: boolean;
@@ -64,14 +106,28 @@ class ProjectList {
   templateElement: HTMLTemplateElement;
   hostElement: HTMLDivElement;
   element: HTMLElement;
+  assignedProjects: any[] = [];
   constructor(private type: 'active' | 'finished') {
     this.templateElement = document.getElementById('project-list')! as HTMLTemplateElement;
     this.hostElement = document.getElementById('app')! as HTMLDivElement;
     const importedNode = document.importNode(this.templateElement.content, true);
     this.element = importedNode.firstElementChild as HTMLFormElement;
     this.element.id = `${this.type}-projects`;
+    projectState.addListener((projects: any[]) => {
+      this.assignedProjects = projects;
+      this.renderProjects();
+    });
     this.attach();
     this.renderContent();
+  }
+
+  private renderProjects() {
+    const listEl = document.getElementById(`${this.type}-projects-list`)!;
+    for (const project of this.assignedProjects) {
+      const listItem = document.createElement('li');
+      listItem.textContent = project.title;
+      listEl.appendChild(listItem);
+    }
   }
 
   private renderContent() {
@@ -187,6 +243,8 @@ class ProjectInput {
     const userInput = this.gatherUserInput();
     if (Array.isArray(userInput)) {
       const [title, description, people] = userInput;
+      projectState.addProject(title, description, people);
+
       console.log(title, description, people);
       this.clearInputs();
     }
