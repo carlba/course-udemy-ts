@@ -50,6 +50,43 @@ function AutoBind(_: any, __: string, descriptor: PropertyDescriptor) {
 }
 
 /**
+ * This is the class that renders the project list into the DOM. It shares a lot of code
+ * with the ProjectInput. One thing that differs is that we add the contents `beforeend`,
+ * like so: `this.hostElement.insertAdjacentElement('beforeend', this.element);`. This
+ * inserts the template element before the end tag of the hostElement I.E the div with
+ * id `app`;
+ *
+ * ## Rendering Project Lists
+ * https://www.udemy.com/course/understanding-typescript/learn/lecture/16935812
+ *
+ */
+class ProjectList {
+  templateElement: HTMLTemplateElement;
+  hostElement: HTMLDivElement;
+  element: HTMLElement;
+  constructor(private type: 'active' | 'finished') {
+    this.templateElement = document.getElementById('project-list')! as HTMLTemplateElement;
+    this.hostElement = document.getElementById('app')! as HTMLDivElement;
+    const importedNode = document.importNode(this.templateElement.content, true);
+    this.element = importedNode.firstElementChild as HTMLFormElement;
+    this.element.id = `${this.type}-projects`;
+    this.attach();
+    this.renderContent();
+  }
+
+  private renderContent() {
+    const listId = `${this.type}-projects-list`;
+    this.element.querySelector('ul')!.id = listId;
+    this.element.querySelector('h2')!.textContent =
+      this.type.toUpperCase() + ' projects'.toUpperCase();
+  }
+
+  private attach() {
+    this.hostElement.insertAdjacentElement('beforeend', this.element);
+  }
+}
+
+/**
  * This class gets the template in the HTML and the target div and inserts the element
  * in the targeted div. Typecasting is used to work around the issue that we don't
  * know weather the elements retrieved using `document.getElementById()` is undefined or
@@ -161,3 +198,5 @@ class ProjectInput {
 }
 
 const projectInput = new ProjectInput();
+const activeProjectList = new ProjectList('active');
+const finishedProjectList = new ProjectList('finished');
