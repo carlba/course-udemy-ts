@@ -119,10 +119,15 @@ function AutoBind(_: any, __: string, descriptor: PropertyDescriptor) {
  * with the ProjectInput. One thing that differs is that we add the contents `beforeend`,
  * like so: `this.hostElement.insertAdjacentElement('beforeend', this.element);`. This
  * inserts the template element before the end tag of the hostElement I.E the div with
- * id `app`;
+ * id `app`. The internal list of projects is filtered when new projects is received from
+ * the listener. We are using `listEl.innerHTML = '';` To prevent the projects from
+ * being rendered twice we are clearing all previous data from the list.
  *
  * ## Rendering Project Lists
  * https://www.udemy.com/course/understanding-typescript/learn/lecture/16935812
+ *
+ * ## Filtering Projects with Enums
+ * https://www.udemy.com/course/understanding-typescript/learn/lecture/16935840
  *
  */
 class ProjectList {
@@ -137,7 +142,12 @@ class ProjectList {
     this.element = importedNode.firstElementChild as HTMLFormElement;
     this.element.id = `${this.type}-projects`;
     projectState.addListener((projects: Project[]) => {
-      this.assignedProjects = projects;
+      const relevantProjects = projects.filter(project => {
+        return this.type === 'active'
+          ? project.status === ProjectStatus.Active
+          : project.status === ProjectStatus.Finished;
+      });
+      this.assignedProjects = relevantProjects;
       this.renderProjects();
     });
     this.attach();
@@ -146,6 +156,7 @@ class ProjectList {
 
   private renderProjects() {
     const listEl = document.getElementById(`${this.type}-projects-list`)!;
+    listEl.innerHTML = '';
     for (const project of this.assignedProjects) {
       const listItem = document.createElement('li');
       listItem.textContent = project.title;

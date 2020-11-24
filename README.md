@@ -879,3 +879,7 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935820
 ## More Classes & Custom Types
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935832
+
+## Filtering Projects with Enums
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935840
