@@ -875,3 +875,7 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935762
 ## Managing Application State with Singletons
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935820
+
+## More Classes & Custom Types
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935832
