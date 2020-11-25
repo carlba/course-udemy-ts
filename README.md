@@ -787,7 +787,8 @@ console.log(person);
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935716#overview
 
-To be able to modify the behavior of a decorator a decorator factory can be used. This will allow us to pass in an argument to the decorator, like so:
+To be able to modify the behavior of a decorator a decorator factory can be used. This will allow
+us to pass in an argument to the decorator, like so:
 
 ```typescript
 function Logger(logString: string) {
@@ -883,3 +884,11 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935832
 ## Filtering Projects with Enums
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935840
+
+## Adding Inheritance & Generics
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935850
+
+This lesson is a good example on how to refactor classes using abstract classes.
+
+- public methods should go before private
