@@ -892,3 +892,9 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935850
 This lesson is a good example on how to refactor classes using abstract classes.
 
 - public methods should go before private
+
+## Rendering Project Items with a Class
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935852#overview
+
+- getter methods should be positioned between fields and constructor

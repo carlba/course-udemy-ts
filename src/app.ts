@@ -7,8 +7,8 @@ class Project {
   constructor(
     public id: string,
     public title: string,
-    description: string,
-    people: number,
+    public description: string,
+    public people: number,
     public status: ProjectStatus
   ) {}
 }
@@ -157,6 +157,28 @@ abstract class Component<T extends HTMLElement, U extends HTMLElement> {
   abstract renderContent(): void;
 }
 
+class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> {
+  private project: Project;
+
+  get personsLabel() {
+    return this.project.people === 1 ? 'one person' : `${this.project.people} persons`;
+  }
+
+  constructor(hostId: string, project: Project) {
+    super('single-project', hostId, false, project.id);
+    this.project = project;
+    this.renderContent();
+  }
+
+  configure(): void {}
+
+  renderContent(): void {
+    this.element.querySelector('h2')!.textContent = this.project.title;
+    this.element.querySelector('h3')!.textContent = this.personsLabel + ' assigned';
+    this.element.querySelector('p')!.textContent = this.project.description;
+  }
+}
+
 /**
  * This is the class that renders the project list into the DOM. It shares a lot of code
  * with the ProjectInput. One thing that differs is that we add the contents `beforeend`,
@@ -204,9 +226,7 @@ class ProjectList extends Component<HTMLDivElement, HTMLElement> {
     const listEl = document.getElementById(`${this.type}-projects-list`)!;
     listEl.innerHTML = '';
     for (const project of this.assignedProjects) {
-      const listItem = document.createElement('li');
-      listItem.textContent = project.title;
-      listEl.appendChild(listItem);
+      new ProjectItem(listEl.id, project);
     }
   }
 }
