@@ -898,3 +898,7 @@ This lesson is a good example on how to refactor classes using abstract classes.
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935852#overview
 
 - getter methods should be positioned between fields and constructor
+
+## Utilizing Interfaces to Implement Drag & Drop
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935858

@@ -1,3 +1,17 @@
+// Drag & Drop Interfaces
+// https://www.udemy.com/course/understanding-typescript/learn/lecture/16935858
+
+interface Draggable {
+  dragStartHandler(event: DragEvent): void;
+  dragEndHandler(event: DragEvent): void;
+}
+
+interface DragTarget {
+  dragOverHandler(event: DragEvent): void;
+  dropHandler(event: DragEvent): void;
+  dragLeaveHandler(event: DragEvent): void;
+}
+
 enum ProjectStatus {
   Active,
   Finished
@@ -157,7 +171,7 @@ abstract class Component<T extends HTMLElement, U extends HTMLElement> {
   abstract renderContent(): void;
 }
 
-class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> {
+class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> implements Draggable {
   private project: Project;
 
   get personsLabel() {
@@ -167,10 +181,30 @@ class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> {
   constructor(hostId: string, project: Project) {
     super('single-project', hostId, false, project.id);
     this.project = project;
+    this.configure();
     this.renderContent();
   }
 
-  configure(): void {}
+  /**
+   * The `AutoBind` decorator is used to ensure that `this` of the class is available in
+   * the callback function.
+   *
+   * @param event The Dragstart event
+   */
+  @AutoBind
+  dragStartHandler(event: DragEvent) {
+    console.log('dragStart', event);
+  }
+
+  @AutoBind
+  dragEndHandler(event: DragEvent) {
+    console.log('dragEnd', event);
+  }
+
+  configure(): void {
+    this.element.addEventListener('dragstart', this.dragStartHandler);
+    this.element.addEventListener('dragend', this.dragEndHandler);
+  }
 
   renderContent(): void {
     this.element.querySelector('h2')!.textContent = this.project.title;
