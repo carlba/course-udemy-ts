@@ -902,3 +902,7 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935852#ove
 ## Utilizing Interfaces to Implement Drag & Drop
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935858
+
+## Drag Events & Reflecting the Current State in the UI
+
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16935876

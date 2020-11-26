@@ -229,7 +229,7 @@ class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> implements 
  * https://www.udemy.com/course/understanding-typescript/learn/lecture/16935840
  *
  */
-class ProjectList extends Component<HTMLDivElement, HTMLElement> {
+class ProjectList extends Component<HTMLDivElement, HTMLElement> implements DragTarget {
   assignedProjects: Project[] = [];
   constructor(private type: 'active' | 'finished') {
     super('project-list', 'app', false, `${type}-projects`);
@@ -237,7 +237,25 @@ class ProjectList extends Component<HTMLDivElement, HTMLElement> {
     this.renderContent();
   }
 
+  @AutoBind
+  dragOverHandler(event: DragEvent) {
+    const listEl = this.element.querySelector('ul')!;
+    listEl.classList.add('droppable');
+  }
+
+  dropHandler(event: DragEvent) {}
+
+  @AutoBind
+  dragLeaveHandler(event: DragEvent) {
+    const listEl = this.element.querySelector('ul')!;
+    listEl.classList.remove('droppable');
+  }
+
   configure(): void {
+    this.element.addEventListener('dragover', this.dragOverHandler);
+    this.element.addEventListener('dragleave', this.dragLeaveHandler);
+    this.element.addEventListener('drop', this.dropHandler);
+
     projectState.addListener((projects: Project[]) => {
       const relevantProjects = projects.filter(project => {
         return this.type === 'active'
