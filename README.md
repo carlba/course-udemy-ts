@@ -6,7 +6,7 @@
 
 ![Core Types](https://cdn.jsdelivr.net/gh/carlba/assets@master/1DtY5G-EY3Xew.png)
 
-### Type Inferance
+### Type Inference
 
 - This is invalid since Typescript inferred that the type of name is a string. Yet we
   try to assign a number too it.
@@ -34,11 +34,11 @@
 
 ### Typescript specific types
 
-#### Touple
+#### Tuple
 
-https://www.udemy.com/course/understanding-typescript/learn/lecture/16888072#notes
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16888072
 
-An array with fixed lenghts and types
+An array with fixed lengths and types
 
 ```typescript
 const person: { name: string; age: number; role: [number, string] } = {
@@ -132,8 +132,7 @@ Select exactly which files will be included in a Typescript project.
 ```json
 {
   "compilerOptions": {},
-  "include": ["app.ts", "an
-  alytics.ts"]
+  "include": ["app.ts", "analytics.ts"]
 }
 ```
 
@@ -548,7 +547,7 @@ type ElevatedEmployee = Admin & Employee;
 
 ### Type Guards
 
-https://www.udemy.com/course/understanding-typescript/learn/lecture/16893892#overview
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16893892
 
 https://basarat.gitbook.io/typescript/type-system/typeguard
 
@@ -557,7 +556,7 @@ doing something.
 
 ### Discriminated Unions
 
-https://www.udemy.com/course/understanding-typescript/learn/lecture/16893894#overview
+https://www.udemy.com/course/understanding-typescript/learn/lecture/16893894
 
 ```typescript
 interface Bird {
@@ -899,6 +898,10 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935852#ove
 
 - getter methods should be positioned between fields and constructor
 
+# Drag & Drop
+
+[Mozilla Drag & Drop](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
+
 ## Utilizing Interfaces to Implement Drag & Drop
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935858
@@ -906,3 +909,9 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935858
 ## Drag Events & Reflecting the Current State in the UI
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935876
+
+## Adding a Droppable Area
+
+- To enable dropping it is important to remember to do `event.preventDefault` in the
+  function handling the `dragover` event. This allows a drop to happen on the element
+  which has the `dragover` event handler attached to it.
