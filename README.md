@@ -1,5 +1,7 @@
 # Udemy Typescript
 
+[Udemy - Understanding Typescript](https://www.udemy.com/course/understanding-typescript)
+
 [Typescript: Handbook - Basic Types](https://www.typescriptlang.org/docs/handbook/basic-types.html)
 
 ## Core Types
@@ -8,8 +10,8 @@
 
 ### Type Inference
 
-- This is invalid since Typescript inferred that the type of name is a string. Yet we
-  try to assign a number too it.
+- This is invalid since Typescript inferred that the type of name is a string. Yet we try to assign
+  a number too it.
 
   ```typescript
   let name = 'Carl';
@@ -96,8 +98,8 @@ To accomplish this Typescript needs to be aware that our folder is a project, li
 tsc --init
 ```
 
-This creates a tsconfig.json describing the project. It is now possible to run
-`tsc --watch` to automatically detect and compile any changes in the project folder.
+This creates a tsconfig.json describing the project. It is now possible to run `tsc --watch` to
+automatically detect and compile any changes in the project folder.
 
 ### Exclude files
 
@@ -140,10 +142,9 @@ Select exactly which files will be included in a Typescript project.
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/17009168#content
 
-The javascript version Typescript compiles to default if not specific is `es3`.
-Default in the generated `tsconfig.json` is `es5`. The target will affect how the
-output js looks one example is that `let` and `const` will be used instead of `var` when
-moving from `es5` to `es6` as target.
+The javascript version Typescript compiles to default if not specific is `es3`. Default in the
+generated `tsconfig.json` is `es5`. The target will affect how the output js looks one example is
+that `let` and `const` will be used instead of `var` when moving from `es5` to `es6` as target.
 
 ```json
 {
@@ -157,9 +158,8 @@ moving from `es5` to `es6` as target.
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16888184
 
-These control which libraries that are always available in the scope. By default
-they include `document`, `element` and other things that is nativly available when
-user Javascript in the browser
+These control which libraries that are always available in the scope. By default they include
+`document`, `element` and other things that is nativly available when user Javascript in the browser
 
 ```json
 {
@@ -218,11 +218,9 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16888204
 }
 ```
 
-- noImplicitAny
-  Prevents function declarations with undefined parameters
+- noImplicitAny Prevents function declarations with undefined parameters
 
-- strictNullChecks
-  Makes Typescript very strict about when things might possible be null.
+- strictNullChecks Makes Typescript very strict about when things might possible be null.
 
   ```typescript
   // There is no way for Typescript to know if this will return null.
@@ -238,8 +236,7 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16888204
      const button = document.getElementById('button')!;
      ```
 
-     This will tell Typescript that we are sure that the statement will never return
-     null.
+     This will tell Typescript that we are sure that the statement will never return null.
 
   2. Use a runtime null check
 
@@ -260,8 +257,8 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16888204
 
 - noImplicitReturn
 
-  If set to true the below code would generate an error because we don't handle all
-  possible input values within the function
+  If set to true the below code would generate an error because we don't handle all possible input
+  values within the function
 
   ```typescript
   function add(n1: number, n2: number) {
@@ -309,11 +306,10 @@ console.log(accounting);
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16888250
 
-`this` can be a confusing subject in `Javascript` it usally refers
-to the caller of the method or function.
+`this` can be a confusing subject in `Javascript` it usally refers to the caller of the method or
+function.
 
-In this example `this.name` refers to the name propert of the
-object in the person constant.
+In this example `this.name` refers to the name propert of the object in the person constant.
 
 ```typescript
 const person: {
@@ -361,8 +357,8 @@ class Department {
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16888260
 
-The property can only be set on initialization. Any attempt to write to it
-after instantiation will fail.
+The property can only be set on initialization. Any attempt to write to it after instantiation will
+fail.
 
 ```typescript
 class Department {
@@ -378,8 +374,8 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16888264
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16888274#questions
 
-If classes needs to be extended the protected keyword is helpful. It allows only classes
-that extends the parent class to modify the property.
+If classes needs to be extended the protected keyword is helpful. It allows only classes that
+extends the parent class to modify the property.
 
 ```typescript
 class Department {
@@ -407,8 +403,8 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16888280
   Department.createEmployee('carl');
 ```
 
-Static methods can not be accessed using this. To use a static method within the
-instance methods use `Department.createEmployee`.
+Static methods can not be accessed using this. To use a static method within the instance methods
+use `Department.createEmployee`.
 
 ### Abstract Classes
 
@@ -478,8 +474,8 @@ An interface can be added as a type for any kind of object.
 
 ### Difference between Interfaces and Types
 
-- Interfaces can only be used to define a structure of an object whilst types can
-  contain unions types and similar.
+- Interfaces can only be used to define a structure of an object whilst types can contain unions
+  types and similar.
 
 - Interfaces can be implemented by classes.
 
@@ -551,8 +547,7 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16893892
 
 https://basarat.gitbook.io/typescript/type-system/typeguard
 
-A method to ensure a property or method exits on a object before
-doing something.
+A method to ensure a property or method exits on a object before doing something.
 
 ### Discriminated Unions
 
@@ -639,8 +634,8 @@ const errorBag: ErrorContainer = {
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16893904
 
-Function Overloading works by defining a return type for a certain set of function
-input parameters, like so:
+Function Overloading works by defining a return type for a certain set of function input parameters,
+like so:
 
 ```typescript
 // Function Overload
@@ -694,10 +689,9 @@ A generic type is a type connected to another type.
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16894048
 
-The unknown "generic" types are defined by angle brackets and can then be used
-as a parameter type and return type. When the two generic parameter are specified
-Typescript can infer that the merge function will return a union of T and U. It could
-also be specified as the return type T & U.
+The unknown "generic" types are defined by angle brackets and can then be used as a parameter type
+and return type. When the two generic parameter are specified Typescript can infer that the merge
+function will return a union of T and U. It could also be specified as the return type T & U.
 
 It is possible to define the generic parameter when a function is called using
 `merge<string, number>`.
@@ -730,8 +724,8 @@ Doing so will cause Typescript to complain that 30 is not an object.
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16894062
 
-The `keyof` keyword means all keys of a certain generic type. This example shows
-how to use it with two generic types.
+The `keyof` keyword means all keys of a certain generic type. This example shows how to use it with
+two generic types.
 
 ```typescript
 function extractAndConvert<T, U extends keyof T>(obj: T, key: U) {
@@ -760,8 +754,7 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935714#ove
 
 - `experimentalDecorators": true` must be set to true in `tsconfig.json`
 - A Class Decorator takes one argument the constructor of the class
-- A Class Decorator is applied when the class is defined not when an object
-  is instantiated.
+- A Class Decorator is applied when the class is defined not when an object is instantiated.
 
 ```typescript
 function Logger(constructor: Function) {
@@ -786,8 +779,8 @@ console.log(person);
 
 https://www.udemy.com/course/understanding-typescript/learn/lecture/16935716#overview
 
-To be able to modify the behavior of a decorator a decorator factory can be used. This will allow
-us to pass in an argument to the decorator, like so:
+To be able to modify the behavior of a decorator a decorator factory can be used. This will allow us
+to pass in an argument to the decorator, like so:
 
 ```typescript
 function Logger(logString: string) {
@@ -912,6 +905,6 @@ https://www.udemy.com/course/understanding-typescript/learn/lecture/16935876
 
 ## Adding a Droppable Area
 
-- To enable dropping it is important to remember to do `event.preventDefault` in the
-  function handling the `dragover` event. This allows a drop to happen on the element
-  which has the `dragover` event handler attached to it.
+- To enable dropping it is important to remember to do `event.preventDefault` in the function
+  handling the `dragover` event. This allows a drop to happen on the element which has the
+  `dragover` event handler attached to it.
