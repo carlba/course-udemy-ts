@@ -189,11 +189,17 @@ class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> implements 
    * The `AutoBind` decorator is used to ensure that `this` of the class is available in
    * the callback function.
    *
+   *
+   * `event.dataTransfer` can be undefined since `DragEvent`
+   * symbolizes all Drag events from different event handlers. For the `dragstart` event
+   * it is always available.
+   *
    * @param event The Dragstart event
    */
   @AutoBind
   dragStartHandler(event: DragEvent) {
-    console.log('dragStart', event);
+    event.dataTransfer!.setData('text/plain', this.project.id);
+    event.dataTransfer!.effectAllowed = 'move';
   }
 
   @AutoBind
@@ -239,11 +245,16 @@ class ProjectList extends Component<HTMLDivElement, HTMLElement> implements Drag
 
   @AutoBind
   dragOverHandler(event: DragEvent) {
-    const listEl = this.element.querySelector('ul')!;
-    listEl.classList.add('droppable');
+    if (event.dataTransfer && event.dataTransfer.types[0] === 'text/plain') {
+      event.preventDefault();
+      const listEl = this.element.querySelector('ul')!;
+      listEl.classList.add('droppable');
+    }
   }
 
-  dropHandler(event: DragEvent) {}
+  dropHandler(event: DragEvent) {
+    console.log('dropHandler', event.dataTransfer!.getData('text/plain'));
+  }
 
   @AutoBind
   dragLeaveHandler(event: DragEvent) {
